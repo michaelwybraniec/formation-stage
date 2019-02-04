@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    /* .row{
+        border: 1px solid red;
+    }
+    div[class^="col-"]{
+        border: 1px solid green;
+    } */
+</style>
+
+<body>
+    <div class="container text-center mt-4">
+
+        <div class="row">
+
+            <div class="col-12 col-md-8 mx-auto bg-light border bg-gradient-light">
+
+                <div class="row">
+                    <div class="col-12 col-sm-8 mb-2 mt-2">
+                        <!--<label for="text"></label>-->
+                        <input type="text" id="get-input" class="form-control" placeholder="What do you want to get?" value="https://jsonplaceholder.typicode.com/todos/1">
+                    </div>
+                    <div class="col-12 col-sm-4 mb-4 mt-2">
+                        <button onclick="get()" class="btn btn-primary btn-md btn-block">GET</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-8 mb-2">
+                        <p id="get-result"></p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-8 mb-2">
+
+                        <input type="text" id="post-input" class="form-control mb-2" placeholder="Where do you want to post?">
+                        <textarea type="text" rows="6" class="form-control mb-2" placeholder="Message..."></textarea>
+                    </div>
+                   
+                    <div class="col-12 col-sm-4 mb-2">
+                            <button onclick="post()" class="btn btn-primary btn-md btn-block">POST</button>
+                        </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var add = function(a, b){
+        return a + b;
+    };
+
+    add(5, 3);
+
+    add = (a, b) => a + b;
+
+
+    function get() {
+        var url = document.getElementById("get-input").value;
+        fetch(url)
+            .then(function(response){return response.json()})
+            .then(function(json){
+                // console.log(data) // Prints result from `response.json()` in getRequest
+                document.getElementById("get-result").innerHTML = JSON.stringify(json);
+            })
+            .catch(function(error){console.error(error)})
+
+    }
+
+
+    
+
+    function post() {
+        var x = document.getElementById("post-input").value;
+        console.log(x);
+    }
+
+</script>
+
+</html>
