@@ -1,0 +1,107 @@
+<script>
+
+
+    function isSorted(array) {
+        for (var i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // console.log("Is sorted : " + isSorted([6, 4, 1, 9, 10, 0, 7, 8]));
+    // console.log("Is sorted : " + isSorted([1, 4, 5, 9, 10, 0, 7, 8]));
+    // console.log("Is sorted : " + isSorted([1, 4, 1, 9, 10, 0, 7, 8]));
+    // console.log("Is sorted : " + isSorted([1, 2, 3, 4, 5, 6, 7, 6]));
+    // console.log("Is sorted : " + isSorted([1, 2, 3, 4, 5, 6, 7, 7]));
+    // console.log("Is sorted : " + isSorted([1, 2, 3, 4, 5, 6, 7, 8]));
+
+    function sortOnce(array) {
+        // TODO : code here
+        for (var i = 0; i < array.length - 1; i++) {
+            // result.push(array[i]); 
+
+            // console.log("\ni : " + i);
+            // console.log("result[i] : " + array[i]);
+            // console.log("result[i + 1] : " + array[i + 1]);
+
+            if (array[i] > array[i + 1]) {
+                // console.log("SWAP!")
+                var a = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = a;
+            }
+            // console.log("result : " + array);
+        }
+    };
+
+    function sort(array) {
+        while (!isSorted(array)) {
+            sortOnce(array);
+        }
+    };
+    // console.log(sort([3, 4, 1, 9, 10, 0, 7, 8]));
+
+    var myArray = [3, 4, 1, 9, 10, 0, 7, 8];
+    sort(myArray);
+    // console.log(myArray);
+
+
+
+
+
+////// FOR LOOP
+
+    function createNumbersForLoop(nbr) {
+        result = [];
+        for (var i = 0; i <= nbr; i++)
+            result.push(i);
+        return result
+    }
+    console.log(JSON.stringify(createNumbersForLoop(200)));
+
+
+    function createAndReverseNumbersForLoop(nbr) {
+        result = [];
+        for (var i = nbr; i >= 0; i--)
+            result.push(i);
+        return result
+    }
+    console.log(JSON.stringify(createAndReverseNumbersForLoop(200)));
+
+/////// WHILE LOOP
+
+    function createNumbersWhileLoop(nbr) {
+        var i = 0;
+        result = [];
+        while (i <= nbr) {
+            result.push(i); 
+            i++;
+        }
+        return result
+    }
+    console.log(JSON.stringify(createNumbersWhileLoop(200)));
+
+
+    function createAndReversNumbersWhileLoop(nbr) {
+        var i = nbr;
+        result = [];
+        while (i >= 0) {
+            result.push(i); 
+            i--;
+        }
+        return result
+    }
+    console.log(JSON.stringify(createAndReversNumbersWhileLoop(200)));
+
+    var invertedArray = createAndReversNumbersWhileLoop(200);
+    console.log(invertedArray);
+    sort(invertedArray);
+    console.log(invertedArray);
+
+
+
+</script>
+
+
+
